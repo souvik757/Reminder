@@ -22,6 +22,7 @@
             android:textStyle="bold"
             android:layout_gravity="center"/>
         <androidx.appcompat.widget.AppCompatButton
+            android:onClick="saveNote"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/baseline_save_as_24"

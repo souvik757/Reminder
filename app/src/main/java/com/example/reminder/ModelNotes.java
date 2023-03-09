@@ -1,8 +1,10 @@
 package com.example.reminder;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ModelNotes {
+    public static ArrayList<ModelNotes> _list_NOTE_ = new ArrayList<>() ;
     private int id ;
     private String tile ;
     private String description ;

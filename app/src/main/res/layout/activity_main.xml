@@ -24,6 +24,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:onClick="newNote"
             android:background="@drawable/baseline_add_circle_24"
             android:backgroundTint="@color/white"
             android:layout_gravity="end"/>
