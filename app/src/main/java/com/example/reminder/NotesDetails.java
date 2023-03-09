@@ -2,6 +2,7 @@ package com.example.reminder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,16 +36,15 @@ public class NotesDetails extends AppCompatActivity {
     }
 
     public void saveNote(View view){
+        SQLiteManager sqLiteManager = new SQLiteManager(this) ;
+
         String title = String.valueOf(_for_TITLE_.getText()) ;
         String description  = String.valueOf(_for_DESCRIPTION_.getText()) ;
+
         int ID = ModelNotes._list_NOTE_.size() ;
         ModelNotes _notes_ = new ModelNotes(ID , title , description) ;
+        sqLiteManager.AddNoteToDB(_notes_) ;
         ModelNotes._list_NOTE_.add(_notes_) ;
-        onBackPressed() ;
-    }
-
-    @Override
-    public void onBackPressed() {
         finish();
     }
 }

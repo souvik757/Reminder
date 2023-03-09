@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class NotesAdapter extends ArrayAdapter<ModelNotes> {
+public class NotesAdapter extends  ArrayAdapter<ModelNotes> {
     public NotesAdapter(Context context , List<ModelNotes> _list_){
         super(context , 0 , _list_);
     }
