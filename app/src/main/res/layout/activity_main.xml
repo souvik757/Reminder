@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".MainActivity">
     <androidx.appcompat.widget.Toolbar
@@ -29,11 +30,13 @@
             android:backgroundTint="@color/white"
             android:layout_gravity="end"/>
     </androidx.appcompat.widget.Toolbar>
+
     <ListView
         android:id="@+id/_listview_"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:divider="@color/darkGrey"
-        android:dividerHeight="3dp"/>
+        android:dividerHeight="3dp">
+    </ListView>
 </LinearLayout>

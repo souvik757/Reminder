@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#90CAF9"
     android:orientation="vertical"
     tools:context=".NotesDetails">
     <androidx.appcompat.widget.Toolbar
@@ -22,7 +23,7 @@
             android:textStyle="bold"
             android:layout_gravity="center"/>
         <androidx.appcompat.widget.AppCompatButton
-            android:onClick="saveNote"
+            android:id="@+id/_save_new_entry_"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/baseline_save_as_24"

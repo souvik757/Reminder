@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView _list_view_ ;
+     ListView _list_view_ ;
+    NotesAdapter notesAdapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         _list_view_ = findViewById(R.id._listview_) ;
     }
     private void setNoteAdapter(){
-        NotesAdapter notesAdapter = new NotesAdapter(getApplicationContext() , ModelNotes._list_NOTE_) ;
+        notesAdapter = new NotesAdapter(getApplicationContext() , ModelNotes._list_NOTE_) ;
         _list_view_.setAdapter(notesAdapter);
     }
-    private void newNote(){
-        Intent i = new Intent(this , NotesDetails.class) ;
+    public void newNote(View view){
+        Intent i = new Intent(getApplicationContext() , NotesDetails.class) ;
         startActivity(i) ;
     }
 }
