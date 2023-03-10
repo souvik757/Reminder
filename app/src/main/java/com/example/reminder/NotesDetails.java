@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -61,6 +62,8 @@ public class NotesDetails extends AppCompatActivity {
 
         String title = String.valueOf(_for_TITLE_.getText()) ;
         String description  = String.valueOf(_for_DESCRIPTION_.getText()) ;
+        if(title.isEmpty() || description.isEmpty())
+            Toast.makeText(this, "void entry", Toast.LENGTH_SHORT).show();
 
         if(modelNotes == null){
             int ID = ModelNotes._list_NOTE_.size() ;

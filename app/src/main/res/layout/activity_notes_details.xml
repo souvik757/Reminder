@@ -5,30 +5,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#90CAF9"
+    android:background="@color/darkGrey"
     android:orientation="vertical"
     tools:context=".NotesDetails">
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/darkGrey"
         android:minHeight="?actionBarSize"
         android:theme="?actionBarTheme">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="DETAILS"
-            android:textColor="@color/white"
+            android:textColor="#DD2C00"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"/>
+            android:textStyle="bold" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_save_new_entry_"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_gravity="end"
             android:background="@drawable/baseline_save_as_24"
-            android:backgroundTint="#AEEA00"
-            android:layout_gravity="end"/>
+            android:backgroundTint="#AEEA00" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -36,24 +39,26 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Title"
-        android:textColor="@color/darkGrey"
+        android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginTop="40dp"/>
     <EditText
         android:id="@+id/_edit_title_"
         android:layout_width="300dp"
+        android:hint="enter title"
+        android:textColorHint="#4DFFFFFF"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:textColor="@color/darkGrey"
+        android:textColor="#FFD600"
         android:maxLines="1"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Description"
-        android:textColor="@color/darkGrey"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
         android:layout_marginTop="40dp"/>
@@ -61,9 +66,11 @@
         android:id="@+id/_edit_description_"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:hint="enter description"
+        android:textColorHint="#4DFFFFFF"
         android:layout_marginTop="60dp"
         android:layout_gravity="center"
-        android:textColor="@color/darkGrey"
+        android:textColor="#FFD600"
         android:maxLines="4"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/_DEL_"
