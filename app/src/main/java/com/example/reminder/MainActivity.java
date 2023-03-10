@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,21 +19,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main) ;
         initWidgets() ;
-        setNoteAdapter() ;
+        setNoteAdapter();
+        LoadFromDBtoMemory() ;
+        setOnCLickListener() ;
     }
-    @Override
-    public void onSaveInstanceState(Bundle outInstanceState) {
-        super.onSaveInstanceState(outInstanceState);
-        outInstanceState.putInt("value", 1);
+    public void setOnCLickListener(){
+        _list_view_.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ModelNotes modelNotes = (ModelNotes) _list_view_.getItemAtPosition(position) ;
+                Intent i = new Intent(getApplicationContext() , NotesDetails.class) ;
+                i.putExtra(ModelNotes.NOTE_EDIT_EXTRA , modelNotes.getId()) ;
+                startActivity(i) ;
+            }
+        });
     }
-
     private void initWidgets() {
         _list_view_ = findViewById(R.id._listview_) ;
     }
     private void setNoteAdapter(){
-        notesAdapter = new NotesAdapter(getApplicationContext() , ModelNotes._list_NOTE_) ;
-        LoadFromDBtoMemory() ;
-
+        notesAdapter = new NotesAdapter(getApplicationContext() , ModelNotes.nonDeletedNotes()) ;
         _list_view_.setAdapter(notesAdapter);
     }
     private void LoadFromDBtoMemory(){
@@ -44,4 +50,10 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext() , NotesDetails.class) ;
         startActivity(i) ;
     }
+
+    @Override
+  protected void onResume() {
+      super.onResume();
+      setNoteAdapter();
+  }
 }

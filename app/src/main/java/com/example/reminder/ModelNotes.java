@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class ModelNotes {
     public static ArrayList<ModelNotes> _list_NOTE_ = new ArrayList<>() ;
+    public static String NOTE_EDIT_EXTRA = "noteEdit" ;
     private int id ;
     private String tile ;
     private String description ;
@@ -24,6 +25,24 @@ public class ModelNotes {
         this.deleted = deleted;
     }
 
+    public static ModelNotes getIDofNote(int ID){
+        for(ModelNotes notes : _list_NOTE_){
+            if(notes.getId() == ID)
+                return notes ;
+        }
+        return null ;
+    }
+
+    public static ArrayList<ModelNotes> nonDeletedNotes(){
+        ArrayList<ModelNotes> nonDeleted = new ArrayList<>() ;
+        for(ModelNotes notes : _list_NOTE_){
+            if(notes.getDeleted() == null){
+                nonDeleted.add(notes) ;
+            }
+        }
+
+        return nonDeleted ;
+    }
     public int getId() {
         return id;
     }

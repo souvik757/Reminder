@@ -15,9 +15,9 @@ import java.util.Date;
 public class SQLiteManager extends SQLiteOpenHelper {
 
     private static SQLiteManager sqLiteManager ;
-    private static final String DATABASE_NAME = "notesDB" ;
+    private static final String DATABASE_NAME = "NotesDB" ;
     private static final int DATABASE_VERSION  = 1 ;
-    private static final String TABLE_NAME = "note" ;
+    private static final String TABLE_NAME = "Notes" ;
     private static final String COUNTER = "Counter" ;
 
     private static final String ID_FIELD = "id" ;
@@ -56,11 +56,19 @@ public class SQLiteManager extends SQLiteOpenHelper {
                 .append(DELETED_FIELD)
                 .append(" TEXT)") ;
         db.execSQL(sql.toString());
+        db.close();
+    }
+
+    public void DeleteNote(ModelNotes modelNotes){
+        SQLiteDatabase db = this.getWritableDatabase() ;
+        db.delete(TABLE_NAME , ID_FIELD+" =? ", new String[]{String.valueOf(modelNotes.getId())}) ;
+        db.close();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS " +TABLE_NAME);
+        onCreate(db);
     }
 
     public void AddNoteToDB(ModelNotes modelNotes){
@@ -72,6 +80,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
         contentValues.put(DELETED_FIELD , getStringFromDate(modelNotes.getDeleted()));
 
         sqLiteDatabase.insert(TABLE_NAME , null , contentValues) ;
+        sqLiteDatabase.close();
     }
     public void populateListDB(){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase() ;
@@ -88,7 +97,10 @@ public class SQLiteManager extends SQLiteOpenHelper {
                     ModelNotes._list_NOTE_.add(modelNotes) ;
                 }
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        sqLiteDatabase.close();
     }
 
     public void updateNotesDB(ModelNotes modelNotes){
@@ -101,6 +113,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
         sqLiteDatabase.update(TABLE_NAME , contentValues , ID_FIELD+" =? " ,
                 new String[]{String.valueOf(modelNotes.getId())}) ;
+        sqLiteDatabase.close();
     }
     private String getStringFromDate(Date date){
         if(date == null)

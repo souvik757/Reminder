@@ -27,7 +27,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/baseline_save_as_24"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#AEEA00"
             android:layout_gravity="end"/>
     </androidx.appcompat.widget.Toolbar>
 
@@ -65,4 +65,13 @@
         android:layout_gravity="center"
         android:textColor="@color/darkGrey"
         android:maxLines="4"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/_DEL_"
+        android:onClick="deleteNote"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/baseline_delete_24"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/red"
+        android:layout_gravity="center"/>
 </LinearLayout>
