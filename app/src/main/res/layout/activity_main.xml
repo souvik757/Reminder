@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/main_background"
     android:orientation="vertical"
     tools:context=".MainActivity">
     <androidx.appcompat.widget.Toolbar
@@ -12,6 +12,16 @@
         android:background="@color/darkGrey"
         android:minHeight="?actionBarSize"
         android:theme="?actionBarTheme">
+        <TextView
+            android:id="@+id/_number_of_items_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginRight="15dp"
+            android:textColor="#AEEA00"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,6 +44,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:divider="@color/darkGrey"
-        android:dividerHeight="3dp"/>
+        android:dividerHeight="3dp" />
 </LinearLayout>

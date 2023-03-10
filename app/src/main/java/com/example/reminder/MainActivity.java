@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView _list_view_ ;
     NotesAdapter notesAdapter ;
+    TextView _count_ ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +40,15 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initWidgets() {
         _list_view_ = findViewById(R.id._listview_) ;
+        _count_ = findViewById(R.id._number_of_items_) ;
     }
     private void setNoteAdapter(){
         notesAdapter = new NotesAdapter(getApplicationContext() , ModelNotes.nonDeletedNotes()) ;
-        _list_view_.setAdapter(notesAdapter);
+        _list_view_.setAdapter(notesAdapter) ;
+        if(_list_view_ == null)
+            _count_.setText(String.valueOf(0));
+        else
+            _count_.setText(String.valueOf(_list_view_.getCount()));
     }
     private void LoadFromDBtoMemory(){
         SQLiteManager sqLiteManager = SQLiteManager.instanceofDB(this) ;
