@@ -56,7 +56,6 @@ public class SQLiteManager extends SQLiteOpenHelper {
                 .append(DELETED_FIELD)
                 .append(" TEXT)") ;
         db.execSQL(sql.toString());
-        db.close();
     }
 
     public void DeleteNote(ModelNotes modelNotes){

@@ -62,9 +62,10 @@ public class NotesDetails extends AppCompatActivity {
 
         String title = String.valueOf(_for_TITLE_.getText()) ;
         String description  = String.valueOf(_for_DESCRIPTION_.getText()) ;
-        if(title.isEmpty() || description.isEmpty())
+        if(title.isEmpty() || description.isEmpty()) {
+            Snackbar.make(view ,"void entry" , Snackbar.LENGTH_LONG).show() ;
             Toast.makeText(this, "void entry", Toast.LENGTH_SHORT).show();
-
+        }
         if(modelNotes == null){
             int ID = ModelNotes._list_NOTE_.size() ;
             ModelNotes _notes_ = new ModelNotes(ID , title , description) ;

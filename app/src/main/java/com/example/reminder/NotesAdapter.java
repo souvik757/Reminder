@@ -10,7 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NotesAdapter extends  ArrayAdapter<ModelNotes> {
     public NotesAdapter(Context context , List<ModelNotes> _list_){
@@ -27,8 +31,10 @@ public class NotesAdapter extends  ArrayAdapter<ModelNotes> {
 
         TextView _title_ = convertView.findViewById(R.id._cell_title_) ;
         TextView _description_ = convertView.findViewById(R.id._cell_description_) ;
+        TextView _date_ = convertView.findViewById(R.id._cell_date_) ;
         _title_.setText(NOTES.getTile());
         _description_.setText(NOTES.getDescription());
+        _date_.setText(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date())) ;
 
         return convertView ;
     }
