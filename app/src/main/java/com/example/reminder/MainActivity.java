@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     ListView _list_view_ ;
     NotesAdapter notesAdapter ;
     TextView _count_ ;
+    TextView note ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,25 @@ public class MainActivity extends AppCompatActivity {
         setNoteAdapter();
         LoadFromDBtoMemory() ;
         setOnCLickListener() ;
+    }
+    private void initWidgets() {
+        _list_view_ = findViewById(R.id._listview_) ;
+        _count_ = findViewById(R.id._number_of_items_) ;
+        note = findViewById(R.id._note_) ;
+    }
+    private void setNoteAdapter() {
+        notesAdapter = new NotesAdapter(getApplicationContext(), ModelNotes.nonDeletedNotes());
+        _list_view_.setAdapter(notesAdapter);
+        if (_list_view_ == null) {
+            _count_.setText(String.valueOf(0));
+            note.setText("NOTES");
+        }else {
+            _count_.setText(String.valueOf(_list_view_.getCount()));
+            if(_list_view_.getCount() == 1)
+                note.setText("NOTE");
+            else
+                note.setText("NOTES");
+        }
     }
     public void setOnCLickListener(){
         _list_view_.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -37,18 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i) ;
             }
         });
-    }
-    private void initWidgets() {
-        _list_view_ = findViewById(R.id._listview_) ;
-        _count_ = findViewById(R.id._number_of_items_) ;
-    }
-    private void setNoteAdapter(){
-        notesAdapter = new NotesAdapter(getApplicationContext() , ModelNotes.nonDeletedNotes()) ;
-        _list_view_.setAdapter(notesAdapter) ;
-        if(_list_view_ == null)
-            _count_.setText(String.valueOf(0));
-        else
-            _count_.setText(String.valueOf(_list_view_.getCount()));
     }
     private void LoadFromDBtoMemory(){
         SQLiteManager sqLiteManager = SQLiteManager.instanceofDB(this) ;

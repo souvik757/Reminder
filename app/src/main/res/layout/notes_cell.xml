@@ -7,11 +7,11 @@
     android:background="@drawable/cell_background"
     android:layout_marginRight="15dp"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/_cell_title_"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/_cell_description_"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="15dp"
         android:text="description"
@@ -36,10 +36,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/_cell_title_"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/_cell_date_"

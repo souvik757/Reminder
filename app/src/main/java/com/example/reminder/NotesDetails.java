@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Date;
@@ -19,7 +20,7 @@ public class NotesDetails extends AppCompatActivity {
     private EditText _for_DESCRIPTION_ ;
     private ModelNotes modelNotes ;
     Button _del_btn_ ;
-    Button _save_ ;
+    FloatingActionButton _save_ ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
