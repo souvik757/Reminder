@@ -68,6 +68,7 @@
         android:id="@+id/_edit_description_"
         android:layout_width="350dp"
         android:layout_height="300dp"
+        android:textAlignment="center"
         android:hint="enter description"
         android:textSize="20dp"
         android:textColorHint="#4DFFFFFF"
