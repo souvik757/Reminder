@@ -1,4 +1,4 @@
-# Reminder
+# Reminder.io
 
 ## Table of Contents
 
@@ -33,6 +33,5 @@ SQLite database is used to store and manage the notes .
 # "Reminder" 
  * it's a simple and useful application that helps users to save and organize their notes easily
 with the help of Java, Android, XML, and SQLite database technologies .
-
-## Try in your device
-  * Go to -> [Reminder](https://github.com/souvik757/Android-apk-s/blob/main/app-debug.apk)
+## Try in your device !
+ * Go to [Try Reminder](https://github.com/souvik757/Android-apk-s/blob/main/app-debug.apk) and download .
