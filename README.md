@@ -8,7 +8,6 @@
 - [Usage](#usage)
 - [Deployment](#deployment)
 - [Built With](#built-with)
-- [Contributing](#contributing)
 - [Versioning](#versioning)
 - [Authors](#authors)
 - [License](#license)
