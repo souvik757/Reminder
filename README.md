@@ -5,12 +5,8 @@
 - [What is Reminder ?](#what-is-reminder-)
 - [Summary](#in-summary)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
 - [Built With](#built-with)
 - [Versioning](#versioning)
-- [Authors](#authors)
-- [License](#license)
 - [Try in your device](#try-in-your-device-)
 
 ## What is Reminder ?
