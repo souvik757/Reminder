@@ -1,6 +1,6 @@
 # [🔗Reminder 📱](https://github.com/souvik757/Reminder/blob/master/Reminder.apk)
 
-## Table of Contents
+## ***Table of Contents***
 
 - [What is Reminder ?](#what-is-reminder-)
 - [Summary](#in-summary)
