@@ -1,7 +1,9 @@
 package com.example.reminder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class ModelNotes {
     public static ArrayList<ModelNotes> _list_NOTE_ = new ArrayList<>() ;
@@ -70,8 +72,11 @@ public class ModelNotes {
     public Date getDeleted() {
         return deleted;
     }
+    public String ShowDate(){
+        return new SimpleDateFormat("dd/MM/yyyy" , Locale.getDefault()).format(getDeleted()) ;
+    }
 
-    public void setDeleted(Date deleted) {
-        this.deleted = deleted;
+    public void setDeleted(Date _deleted_) {
+        this.deleted = _deleted_;
     }
 }

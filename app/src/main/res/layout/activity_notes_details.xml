@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkGrey"
-    android:orientation="vertical"
     tools:context=".NotesDetails">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darkGrey"
+        android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/darkGrey"
-        android:minHeight="?actionBarSize"
-        android:theme="?actionBarTheme">
+        android:layout_marginTop="16dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +35,6 @@
             android:src="@drawable/baseline_save_as_24"
             android:backgroundTint="#AEEA00" />
     </androidx.appcompat.widget.Toolbar>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,14 +47,16 @@
     <EditText
         android:id="@+id/_edit_title_"
         android:layout_width="350dp"
-        android:hint="enter title"
-        android:textColorHint="#4DFFFFFF"
         android:layout_height="wrap_content"
+        android:hint="enter title\n"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColorHint="#4DFFFFFF"
+        android:background="@drawable/outline_bg_white"
         android:layout_marginTop="10dp"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:layout_gravity="center"
-        android:textColor="#FFD600"
-        android:maxLines="1"/>
+        android:textColor="#FFD600"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,10 +69,12 @@
     <EditText
         android:id="@+id/_edit_description_"
         android:layout_width="350dp"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:hint="enter description"
+        android:hint="enter description\n\n\n"
+        android:background="@drawable/outline_bg_white"
         android:textSize="20dp"
+        android:padding="10dp"
         android:textColorHint="#4DFFFFFF"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
@@ -84,4 +88,5 @@
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/red"
         android:layout_gravity="center"/>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

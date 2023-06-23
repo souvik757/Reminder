@@ -1,17 +1,11 @@
-# Reminder
+# [Reminder 📱](https://github.com/souvik757/Reminder/blob/master/Reminder.apk)
 
 ## Table of Contents
 
 - [What is Reminder ?](#what-is-reminder-)
 - [Summary](#in-summary)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
 - [Built With](#built-with)
-- [Contributing](#contributing)
-- [Versioning](#versioning)
-- [Authors](#authors)
-- [License](#license)
 
 ## What is Reminder ?
 
@@ -29,6 +23,22 @@ It utilizes XML for designing the layout and user interface elements of the appl
 SQLite database is used to store and manage the notes .
 
 ## In summary,
-# "Reminder" 
+### "Reminder" 
  * it's a simple and useful application that helps users to save and organize their notes easily
 with the help of Java, Android, XML, and SQLite database technologies .
+
+## installation
+- First create an empty project in android studio and sync required [Gradle-version](https://developer.android.com/build/releases/past-releases/agp-7-0-0-release-notes) with a stable [JDK-version](https://developer.android.com/studio/intro/studio-config) .
+- Get familier with [SQLite](https://developer.android.com/training/data-storage/sqlite) usage in android studio .
+- Design the [UI](https://developer.android.com/develop/ui) as you like . 
+- For rest of the code refer to [this](https://github.com/souvik757/Reminder/tree/master/app/src/main/java/com/example/reminder) .
+- Create and manage virtual devices with [AVD](https://developer.android.com/studio/run/managing-avds). 
+
+## built-with
+### Tech Stack 👩‍💻
+- [**Java**](https://developer.android.com/reference)
+- [**SQLite**](https://developer.android.com/training/data-storage/sqlite)
+- [**XML**](https://developer.android.com/develop/ui)
+### Tools 👩‍🚒
+- [**Android Studio**](https://developer.android.com/)
+- [**Github**](https://github.com/)

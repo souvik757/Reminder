@@ -1,16 +1,16 @@
 package com.example.reminder;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main) ;
-        initWidgets() ;
+        InitializeWidgets() ;
         setNoteAdapter();
         LoadFromDBtoMemory() ;
         setOnCLickListener() ;
+
     }
-    private void initWidgets() {
+    private void InitializeWidgets() {
         _list_view_ = findViewById(R.id._listview_) ;
         _count_ = findViewById(R.id._number_of_items_) ;
         note = findViewById(R.id._note_) ;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             else
                 note.setText("NOTES");
         }
+        //SaveDateCreated(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
     }
     public void setOnCLickListener(){
         _list_view_.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,9 +70,28 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i) ;
     }
 
+    public void AlertBox(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Do you want to exit ?");
+        builder.setTitle("Alert !");
+        builder.setCancelable(true);
+        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+            finish() ;
+        });
+        builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
     @Override
-  protected void onResume() {
-      super.onResume();
-      setNoteAdapter();
-  }
+    public void onBackPressed() {
+        AlertBox(MainActivity.this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setNoteAdapter();
+    }
 }

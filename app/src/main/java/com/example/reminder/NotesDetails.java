@@ -3,17 +3,18 @@ package com.example.reminder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.Date;
 
 public class NotesDetails extends AppCompatActivity {
     private EditText _for_TITLE_ ;
@@ -26,16 +27,25 @@ public class NotesDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_details);
-        initWidgets() ;
+        InitializeWidgets() ;
+        OnClickListener() ;
+        checkForEditNote() ;
+    }
+
+    private void InitializeWidgets() {
+        _for_TITLE_       = findViewById(R.id._edit_title_) ;
+        _for_DESCRIPTION_ = findViewById(R.id._edit_description_) ;
+        _del_btn_ = findViewById(R.id._DEL_) ;
         _save_ = findViewById(R.id._save_new_entry_) ;
+    }
+    private void OnClickListener(){
         _save_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveNote(v);
-                Snackbar.make(v , "Saved" , Snackbar.LENGTH_LONG).show() ;
+
             }
         });
-        checkForEditNote() ;
     }
 
     private void checkForEditNote(){
@@ -52,32 +62,27 @@ public class NotesDetails extends AppCompatActivity {
         }
     }
 
-    private void initWidgets() {
-        _for_TITLE_       = findViewById(R.id._edit_title_) ;
-        _for_DESCRIPTION_ = findViewById(R.id._edit_description_) ;
-        _del_btn_ = findViewById(R.id._DEL_) ;
-    }
-
     public void saveNote(View view){
         SQLiteManager sqLiteManager = SQLiteManager.instanceofDB(this) ;
 
         String title = String.valueOf(_for_TITLE_.getText()) ;
         String description  = String.valueOf(_for_DESCRIPTION_.getText()) ;
         if(title.isEmpty() || description.isEmpty()) {
-            Snackbar.make(view ,"void entry" , Snackbar.LENGTH_LONG).show() ;
-            Toast.makeText(this, "void entry", Toast.LENGTH_SHORT).show();
+            ShowCustomToast("void entry");
         }
         if(modelNotes == null){
             int ID = ModelNotes._list_NOTE_.size() ;
             ModelNotes _notes_ = new ModelNotes(ID , title , description) ;
             ModelNotes._list_NOTE_.add(_notes_) ;
             sqLiteManager.AddNoteToDB(_notes_) ;
+            ShowCustomToast("note created successfully");
         }
         else
         {
             modelNotes.setTile(title) ;
             modelNotes.setDescription(description) ;
             sqLiteManager.updateNotesDB(modelNotes);
+            ShowCustomToast("note updated successfully");
         }
         finish();
     }
@@ -86,6 +91,23 @@ public class NotesDetails extends AppCompatActivity {
         SQLiteManager sqLiteManager = SQLiteManager.instanceofDB(this) ;
         ModelNotes._list_NOTE_.remove(modelNotes) ;
         sqLiteManager.DeleteNote(modelNotes) ;
+        ShowCustomToast("note deleted successfully");
         finish();
+    }
+    private void ShowCustomToast(String message){
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast,
+                (ViewGroup) findViewById(R.id._custom_toast_container_));
+
+        ImageView alert = layout.findViewById(R.id._icon_) ;
+        alert.setImageResource(R.drawable.baseline_notifications_none_24);
+        TextView text = layout.findViewById(R.id._message_);
+        text.setText(message);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
+
     }
 }
