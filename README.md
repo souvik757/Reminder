@@ -1,19 +1,12 @@
-# [Reminder](https://github.com/souvik757/Reminder/blob/master/Reminder_ver_1.0.1.apk)
+## Reminder
 
-## Table of Contents
+### Table of Contents
 
-- [What is Reminder ?](#what-is-reminder-)
-- [Summary](#in-summary)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Built With](#built-with)
-- [Contributing](#contributing)
-- [Versioning](#versioning)
-- [Authors](#authors)
-- [License](#license)
+- [Overview](#overview)
+- [TechStack](#techstack)
+- [download](https://github.com/souvik757/Reminder/blob/master/Reminder_ver_1.0.1.apk)
 
-## What is Reminder ?
+### Overview
 
 * This android project is a simple note-saving application that allows users to create, store, and delete notes.
 The application is built using the Java programming language, Android SDK, XML, and SQLite database .
@@ -28,7 +21,7 @@ The user can also delete any note they wish by simply selecting it and deleting 
 It utilizes XML for designing the layout and user interface elements of the application.
 SQLite database is used to store and manage the notes .
 
-## In summary,
-# "Reminder" 
- * it's a simple and useful application that helps users to save and organize their notes easily
-with the help of Java, Android, XML, and SQLite database technologies .
+### TechStack
+- #### java
+- #### Android Studio
+- #### SQLite
